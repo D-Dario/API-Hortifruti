@@ -1,0 +1,26 @@
+.produto__container {
+  font-size: 25px;
+}
+
+.produto__edit {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 400px;
+  width: 50%;
+  gap: 8px;
+}
+
+.produto__campo {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+}
+
+.produto__label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.editar__btn {
+  width: 100px;
+}

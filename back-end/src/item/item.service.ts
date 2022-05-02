@@ -1,7 +1,8 @@
 
+
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { MoreThanOrEqual, Repository } from 'typeorm';
 import { CreateItemDto } from './dto/create-item.dto';
 import { UpdateItemDto } from './dto/update-item.dto';
 import { Item } from './entities/item.entity';
@@ -16,11 +17,19 @@ export class ItemService {
  }
 
  findAll(): Promise<Item[]> {
-   return this.repository.find();
+   return this.repository.find({
+     order:{name:"ASC"},
+     where: { quantity: MoreThanOrEqual(0) }
+  });
  }
 
- findOne(id: string): Promise<Item> {
-   return this.repository.findOne(id);
+ async findOne(id: string): Promise<Item> {
+  const item = await this.repository.findOne(id);
+
+  if (!item){
+    throw new NotFoundException(`Item ${id} not found`);
+  }
+  return item;
  }
 
  async update(id: string, updateItemDto: UpdateItemDto): Promise<Item> {

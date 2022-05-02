@@ -1,0 +1,36 @@
+@import '~antd/dist/antd.css';
+
+.main {
+  height: 100vh;
+}
+
+.main__content {
+  height: inherit;
+}
+
+.header {
+  background-color: #f7f7f7;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.menu {
+  background-color: #f7f7f7;
+  padding: 16px;
+}
+
+.content {
+  padding: 18px;
+  overflow: auto;
+  background: #c5c5c5;
+}
+
+.footer {
+  background-color: #f7f7f7;
+  text-align: center;
+  font-weight: 600;
+}
+
+.menu__section {
+  background-color: #f7f7f7;
+}
